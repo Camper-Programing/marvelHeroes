@@ -1,20 +1,26 @@
 {
   "name": "marvelhelte",
   "version": "1.0.0",
-  "main": "server.js",
+  "main": "src/server.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "test": "mocha src/test/**/*.test.js",
+    "start": "node src/server.js"
   },
   "private": true,
   "dependencies": {
     "chai": "^5.1.2",
     "express": "^4.21.1",
     "fs": "^0.0.1-security",
-    "mocha": "^10.7.3"
+    "morgan": "^1.10.0",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "mocha": "^10.7.3"
+  }
 }
