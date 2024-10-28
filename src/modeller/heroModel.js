@@ -1,11 +1,10 @@
-const fs = require('fs');
-const path = require('path');
-
+import fs from 'fs';
+import path from 'path';
 
 class HeroModel {
     constructor() {
         this.filePath = path.join(__dirname, '../heroes.json');
-        this.heroes = this.readHeroesFromFile();
+        this.heroes = this.readHeroesFromFile(); // Load heroes from the JSON file on initialization
     }
 
     // Læs helte fra JSON-filen
