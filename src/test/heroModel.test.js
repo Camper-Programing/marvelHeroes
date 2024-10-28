@@ -1,5 +1,6 @@
-import { expect } from 'chai'; // Use import instead of require
-import HeroModel from '../modeller/heroModel.js'; // Adjust the path accordingly
+// test/heroModel.test.js
+import { expect } from 'chai';
+import HeroModel from '../modeller/heroModel.js';
 
 describe('HeroModel', () => {
     let model;
@@ -34,6 +35,6 @@ describe('HeroModel', () => {
 
     it('should delete a hero', () => {
         const deletedHero = model.deleteHero(1);
-        expect(deletedHero[0]).to.have.property('name', 'Captain America');
+        expect(deletedHero).to.have.property('name', 'Captain America'); // Adjusting to match your delete function
     });
 });

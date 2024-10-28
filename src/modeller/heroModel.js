@@ -7,28 +7,28 @@ class HeroModel {
         this.heroes = this.readHeroesFromFile(); // Load heroes from the JSON file on initialization
     }
 
-    // Læs helte fra JSON-filen
+    // Read heroes from JSON file
     readHeroesFromFile() {
         const data = fs.readFileSync(this.filePath, 'utf-8');
         return JSON.parse(data);
     }
 
-    // Gem helte til JSON-filen
+    // Save heroes to JSON file
     saveHeroesToFile() {
         fs.writeFileSync(this.filePath, JSON.stringify(this.heroes, null, 2));
     }
 
-    // Hent alle helte
+    // Get all heroes
     getAllHeroes() {
         return this.heroes;
     }
 
-    // Hent en helt efter ID
+    // Get a hero by ID
     getHeroById(id) {
         return this.heroes.find(hero => hero.id === id);
     }
 
-    // Opret en ny helt
+    // Create a new hero
     createHero(newHero) {
         newHero.id = this.heroes.length ? this.heroes[this.heroes.length - 1].id + 1 : 1;
         this.heroes.push(newHero);
@@ -36,7 +36,7 @@ class HeroModel {
         return newHero;
     }
 
-    // Opdater en eksisterende helt
+    // Update an existing hero
     updateHero(id, updatedData) {
         const heroIndex = this.heroes.findIndex(hero => hero.id === id);
         if (heroIndex !== -1) {
@@ -47,13 +47,13 @@ class HeroModel {
         return null;
     }
 
-    // Slet en helt
+    // Delete a hero
     deleteHero(id) {
         const heroIndex = this.heroes.findIndex(hero => hero.id === id);
         if (heroIndex !== -1) {
             const removedHero = this.heroes.splice(heroIndex, 1);
             this.saveHeroesToFile();
-            return removedHero;
+            return removedHero[0]; // Return the deleted hero
         }
         return null;
     }
